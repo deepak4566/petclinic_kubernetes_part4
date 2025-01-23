@@ -17,7 +17,7 @@ spec:
         image: deepak8934/petapp:66
         ports:
         - containerPort: 8080
-        env: # Setting Enviornmental Variables
+        env: # Setting Environmental Variables
         - name: MYSQL_URL # Setting Database host address from configMap
           valueFrom:
             configMapKeyRef:
@@ -41,3 +41,4 @@ spec:
             secretKeyRef:
               name: secret-petclinic
               key: MYSQL_PASSWORD
+        command: ["java", "-jar", "spring-petclinic-3.2.0-SNAPSHOT.jar", "--spring.datasource.initialize=true"]
